@@ -1,0 +1,1 @@
+raw 1 base + 1 mobile ~330 meters in city range config bipole

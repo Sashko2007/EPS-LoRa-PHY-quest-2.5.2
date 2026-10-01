@@ -1,27 +1,5 @@
 #!/usr/bin/env python3
-"""
-LoRa PHY Quest - LAPTOP LOGGER (розділ 6 гайда, "Ноутбук, підключений до Base node")
 
-Що робить:
-  - підключається до COM-порту Base node (або знаходить його автоматично)
-  - читає Serial, пропускає службові рядки, що починаються з '#'
-  - додає timestamp_utc, team_id, location_tag, distance_m_est, node_height_m, env_notes
-  - ОДИН успішний прийом = ОДИН рядок у raw.csv (дані НЕ редагуються і не видаляються)
-  - зберігає run metadata у run_metadata.json
-  - сам перепідключається, якщо кабель висмикнули
-
-Інтерактивні команди під час збору (вводьте в цьому ж терміналі):
-  loc <TAG> [distance_m] [height_m] [notes...]   нова точка вимірювання
-  note <text>                                    змінити env_notes
-  !<cmd>                                         надіслати команду на Base, напр.  !cfg 2   !status
-  status                                         поточна статистика logger
-  help | quit
-
-Запуск:
-  pip install pyserial
-  python lora_logger.py --team team1                      (автовизначення порту)
-  python lora_logger.py --port COM5 --team team1 --out raw.csv
-"""
 import argparse
 import csv
 import json
